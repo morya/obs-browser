@@ -97,6 +97,8 @@ void BrowserApp::OnBeforeCommandLineProcessing(const CefString &, CefRefPtr<CefC
 #elif !defined(_WIN32)
 	command_line->AppendSwitchWithValue("ozone-platform", wayland ? "wayland" : "x11");
 #endif
+
+	command_line->AppendSwitch("allow-running-insecure-content"); // allow mixed http/https
 }
 
 std::vector<std::string> exposedFunctions = {"getControlLevel",     "getCurrentScene",  "getStatus",
